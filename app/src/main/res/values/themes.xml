@@ -13,4 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Widget.AppCompat.EditText.EditTextSearch" parent="Widget.AppCompat.EditText">
+        <item name="background">@drawable/search_input_bg</item>
+        <item name="paddingStart">@dimen/main_padding</item>
+        <item name="paddingEnd">@dimen/main_padding</item>
+        <item name="android:paddingTop">@dimen/sub_padding</item>
+        <item name="android:paddingBottom">@dimen/main_padding</item>
+    </style>
 </resources>
