@@ -42,6 +42,8 @@ object AppModule {
     @Singleton
     fun provideRepository(noteDatabase: Provider<NoteDatabase>) = NoteRepository(noteDatabase)
 
+    
+
     /*
     * TODO
     *  write a view mode provider

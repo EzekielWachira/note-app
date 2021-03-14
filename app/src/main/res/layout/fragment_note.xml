@@ -21,7 +21,7 @@
             android:drawablePadding="@dimen/sub_padding"
             android:ems="10"
             android:inputType="textPersonName"
-            android:padding="@dimen/input_padding"
+            android:padding="13dp"
             android:text="@string/type_to_search"
             />
 
