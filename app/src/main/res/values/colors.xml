@@ -12,4 +12,5 @@
     <color name="green">#4CAF50</color>
     <color name="colorNoteSubtitleText">#5A5A5A</color>
     <color name="colorDefaultNoteColor">#333333</color>
+    <color name="noteMainColor">#DDDDDD</color>
 </resources>

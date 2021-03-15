@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/_8sdp"
     tools:context=".ui.fragments.NewNoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <EditText
+    android:id="@+id/noteTitleText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/note_main_bg"
+    android:ems="10"
+    android:inputType="text"
+    android:padding="@dimen/_8sdp"
+    android:hint="@string/note_title"
+    tools:layout_editor_absoluteX="140dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="@dimen/_25sdp"
+    />
+
+    <EditText
+        android:id="@+id/noteDescText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+        android:background="@drawable/note_main_bg"
+        android:ems="10"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/_8sdp"
+        android:hint="@string/type_your_note_here"
+        tools:layout_editor_absoluteX="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitleText"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+
+    <Button
+        android:id="@+id/buttonAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintTop_toBottomOf="@+id/noteDescText"
+        app:layout_constraintStart_toStartOf="@+id/noteDescText"
+        app:layout_constraintEnd_toEndOf="@+id/noteDescText"
+        android:layout_marginTop="@dimen/_5sdp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,6 @@
     <string name="trash">trash</string>
     <string name="settings">Settings</string>
     <string name="me">Me</string>
+    <string name="note_title">note title</string>
+    <string name="type_your_note_here">type your note here</string>
 </resources>
