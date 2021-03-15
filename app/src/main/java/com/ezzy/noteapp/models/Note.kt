@@ -3,6 +3,7 @@ package com.ezzy.noteapp.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "notes")
 data class Note(
@@ -12,4 +13,4 @@ data class Note(
     @ColumnInfo(name = "note_color") val noteColor: String?,
     @ColumnInfo(name = "created_at") val creationTime: String?,
     @ColumnInfo(name = "update_at") val updateDate: String?
-)
+) : Serializable
