@@ -1,6 +1,7 @@
 package com.ezzy.noteapp.repository
 
 import androidx.lifecycle.LiveData
+import com.ezzy.noteapp.database.NoteDao
 import com.ezzy.noteapp.database.NoteDatabase
 import com.ezzy.noteapp.models.Note
 import kotlinx.coroutines.Dispatchers
@@ -9,17 +10,17 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 class NoteRepository @Inject constructor(
-    private val noteDatabase: Provider<NoteDatabase>
+    private val noteDao: NoteDao
 ){
     fun getAllNotes() : LiveData<List<Note>> {
-        return noteDatabase.get().noteDao().getAllNotes()
+        return noteDao.getAllNotes()
     }
 
    suspend fun addNote(note: Note){
-        noteDatabase.get().noteDao().insert(note)
+        noteDao.insert(note)
     }
 
     suspend fun deleteNote(note: Note){
-        noteDatabase.get().noteDao().deleteNote(note)
+        noteDao.deleteNote(note)
     }
 }
