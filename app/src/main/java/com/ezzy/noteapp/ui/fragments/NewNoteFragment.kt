@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.ezzy.noteapp.R
 import com.ezzy.noteapp.databinding.FragmentNewNoteBinding
+import com.ezzy.noteapp.models.Note
 import com.ezzy.noteapp.viewmodel.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,6 +28,19 @@ class NewNoteFragment : Fragment() {
         _binding = FragmentNewNoteBinding.inflate(
             inflater, container, false
         )
+
+        val note = Note(
+            null,
+            binding.noteTitleText.text.toString(),
+            binding.noteDescText.text.toString(),
+            "#ffffff",
+            System.currentTimeMillis()
+        )
+
+        binding.buttonAddNote.setOnClickListener {
+            noteViewModel.insertNote(note)
+            findNavController().navigate(R.id.action_newNoteFragment_to_noteFragment)
+        }
 
         return binding.root
     }

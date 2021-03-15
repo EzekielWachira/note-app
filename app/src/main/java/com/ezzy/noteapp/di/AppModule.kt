@@ -2,6 +2,7 @@ package com.ezzy.noteapp.di
 
 import android.content.Context
 import androidx.room.Room
+import com.ezzy.noteapp.database.NoteDao
 import com.ezzy.noteapp.database.NoteDatabase
 import com.ezzy.noteapp.repository.NoteRepository
 import dagger.Module
@@ -35,7 +36,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRepository(noteDatabase: NoteDatabase) = NoteRepository(noteDatabase)
+    fun provideRepository(noteDao: NoteDao) = NoteRepository(noteDao)
 
     
 

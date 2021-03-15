@@ -50,7 +50,7 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
         holder.itemView.apply {
             findViewById<TextView>(R.id.textTitle).text = note.title
             findViewById<TextView>(R.id.textDescription).text = note.description?.smartTruncate(20)
-            findViewById<TextView>(R.id.textDatetime).text = note.creationTime
+            findViewById<TextView>(R.id.textDatetime).text = note.creationTime.toString()
             setOnClickListener {
                 onItemClickListener?.let {
                     it(note)
