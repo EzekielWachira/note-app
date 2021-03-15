@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.core.view.get
 import com.ezzy.noteapp.R
 import com.ezzy.noteapp.databinding.ActivityNotesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NoteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNotesBinding
