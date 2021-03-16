@@ -1,5 +1,6 @@
 package com.ezzy.noteapp.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.get
@@ -26,9 +27,7 @@ class NoteActivity : AppCompatActivity() {
         }
 
         binding.mainFab.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, NewNoteFragment())
-                .commit()
+            startActivity(Intent(this, NewNoteActivity::class.java))
         }
     }
 }

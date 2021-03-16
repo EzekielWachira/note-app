@@ -1,5 +1,6 @@
 package com.ezzy.noteapp.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,6 +57,7 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
                     it(note)
                 }
             }
+//            setBackgroundColor(Color.parseColor(note.noteColor.toString()))
         }
     }
 
