@@ -38,18 +38,6 @@ class NoteFragment : Fragment() {
             inflater, container, false
         )
 
-        noteAdapter = NoteAdapter()
-
-//        binding.noteRecyclerView.apply {
-//            adapter = noteAdapter
-//            layoutManager = LinearLayoutManager(activity)
-//            addItemDecoration(RecyclerViewItemDecorator(5))
-//        }
-//
-//        noteViewModel.getAllNotes().observe(viewLifecycleOwner, Observer {
-//            noteAdapter.differ.submitList(it)
-//        })
-
         return binding.root
     }
 

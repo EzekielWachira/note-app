@@ -21,6 +21,7 @@ class NewNoteActivity : AppCompatActivity() {
     private lateinit var notesViewModel: NoteViewModel
     @Inject
     lateinit var noteRepository: NoteRepository
+    private lateinit var note : Note
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,9 @@ class NewNoteActivity : AppCompatActivity() {
 
         notesViewModel = NoteViewModel(application, noteRepository)
 
+        note = intent?.extras?.get("note") as Note
+        binding.noteTitleTextview.setText(note.title)
+        binding.noteDescTextview.setText(note.description)
 
 
         binding.buttonAddNoteMain.setOnClickListener {
@@ -43,7 +47,6 @@ class NewNoteActivity : AppCompatActivity() {
             notesViewModel.insertNote(note)
             finish()
 
-            Log.d(TAG, "Note: $note ")
         }
     }
 }
