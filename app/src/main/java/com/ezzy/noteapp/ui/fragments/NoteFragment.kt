@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ezzy.noteapp.R
 import com.ezzy.noteapp.adapters.NoteAdapter
 import com.ezzy.noteapp.databinding.FragmentNoteBinding
+import com.ezzy.noteapp.util.RecyclerViewItemDecorator
 import com.ezzy.noteapp.viewmodel.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,6 +38,7 @@ class NoteFragment : Fragment() {
         binding.noteRecyclerView.apply {
             adapter = noteAdapter
             layoutManager = LinearLayoutManager(activity)
+            addItemDecoration(RecyclerViewItemDecorator(5))
         }
 
         noteViewModel.getAllNotes().observe(viewLifecycleOwner, Observer {
