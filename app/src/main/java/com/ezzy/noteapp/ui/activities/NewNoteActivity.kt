@@ -29,6 +29,8 @@ class NewNoteActivity : AppCompatActivity() {
 
         notesViewModel = NoteViewModel(application, noteRepository)
 
+
+
         binding.buttonAddNoteMain.setOnClickListener {
             val note = Note(
                 null,
