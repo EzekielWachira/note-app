@@ -50,7 +50,7 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
         val note = differ.currentList[position]
         holder.itemView.apply {
             findViewById<TextView>(R.id.textTitle).text = note.title
-            findViewById<TextView>(R.id.textDescription).text = note.description?.smartTruncate(20)
+            findViewById<TextView>(R.id.textDescription).text = note.description.smartTruncate(100)
             findViewById<TextView>(R.id.textDatetime).text = note.creationTime.toString()
             setOnClickListener {
                 onItemClickListener?.let {
