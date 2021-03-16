@@ -16,13 +16,13 @@
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/search_input_bg"
+            android:background="@drawable/note_main_bg"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="@dimen/sub_padding"
             android:ems="10"
             android:inputType="textPersonName"
             android:padding="13dp"
-            android:text="@string/type_to_search"
+            android:hint="@string/type_to_search"
             />
 
         <androidx.recyclerview.widget.RecyclerView
