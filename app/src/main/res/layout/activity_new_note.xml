@@ -7,8 +7,8 @@
     android:padding="@dimen/_10sdp"
     tools:context=".ui.activities.NewNoteActivity">
 
-    <EditText
-        android:id="@+id/noteTitleText"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/noteTitleTextview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/note_main_bg"
@@ -22,10 +22,10 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <EditText
-        android:id="@+id/noteDescText"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/noteDescTextview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_400sdp"
+        android:layout_height="@dimen/_300sdp"
         android:background="@drawable/note_main_bg"
         android:ems="10"
         android:gravity="start"
@@ -33,21 +33,21 @@
         android:padding="@dimen/_8sdp"
         android:hint="@string/type_your_note_here"
         android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/noteTitleText"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitleTextview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <Button
-        android:id="@+id/buttonAddNote"
+        android:id="@+id/buttonAddNoteMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@+id/noteDescText"
-        app:layout_constraintStart_toStartOf="@+id/noteDescText"
-        app:layout_constraintEnd_toEndOf="@+id/noteDescText"
+        app:layout_constraintTop_toBottomOf="@+id/noteDescTextview"
+        app:layout_constraintStart_toStartOf="@+id/noteDescTextview"
+        app:layout_constraintEnd_toEndOf="@+id/noteDescTextview"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
