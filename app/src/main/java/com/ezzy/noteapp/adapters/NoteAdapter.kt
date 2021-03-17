@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ezzy.noteapp.R
 import com.ezzy.noteapp.models.Note
+import com.ezzy.noteapp.util.formatTimeToDate
 import com.ezzy.noteapp.util.smartTruncate
 
 class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
@@ -51,7 +52,8 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
         holder.itemView.apply {
             findViewById<TextView>(R.id.textTitle).text = note.title.smartTruncate(30)
             findViewById<TextView>(R.id.textDescription).text = note.description.smartTruncate(100)
-            findViewById<TextView>(R.id.textDatetime).text = note.creationTime.toString()
+            findViewById<TextView>(R.id.textDatetime).text =
+                note.creationTime?.formatTimeToDate(note.creationTime)
             setOnClickListener {
                 onItemClickListener?.let {
                     it(note)

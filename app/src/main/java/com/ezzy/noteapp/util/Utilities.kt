@@ -1,5 +1,9 @@
 package com.ezzy.noteapp.util
 
+import android.annotation.SuppressLint
+import java.text.SimpleDateFormat
+import java.util.*
+
 private val PUNCTUATION = listOf(", ", "; ", ": ", " ")
 
 fun String.smartTruncate(length : Int) : String {
@@ -28,4 +32,11 @@ fun String.smartTruncate(length : Int) : String {
     }
 
     return builder.toString()
+}
+
+@SuppressLint("SimpleDateFormat")
+fun Long.formatTimeToDate(time : Long) : String {
+    val date = Date(time)
+    val format = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+    return format.format(date)
 }
