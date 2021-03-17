@@ -29,7 +29,6 @@ object AppModule {
     @Provides
     fun provideDao(database: NoteDatabase) = database.noteDao()
 
-
     @Provides
     @Singleton
     fun provideApplicationScope() = CoroutineScope(SupervisorJob())
@@ -37,14 +36,5 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRepository(noteDao: NoteDao) = NoteRepository(noteDao)
-
-    
-
-    /*
-    * TODO
-    *  write a view mode provider
-    * */
-
-
 
 }

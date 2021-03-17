@@ -1,14 +1,9 @@
 package com.ezzy.noteapp.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import com.ezzy.noteapp.R
+import androidx.appcompat.app.AppCompatActivity
 import com.ezzy.noteapp.databinding.ActivityNotesBinding
-import com.ezzy.noteapp.ui.fragments.NewNoteFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
