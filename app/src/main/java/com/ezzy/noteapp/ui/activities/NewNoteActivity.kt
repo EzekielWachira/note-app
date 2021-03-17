@@ -30,9 +30,11 @@ class NewNoteActivity : AppCompatActivity() {
 
         notesViewModel = NoteViewModel(application, noteRepository)
 
-        note = intent?.extras?.get("note") as Note
-        binding.noteTitleTextview.setText(note.title)
-        binding.noteDescTextview.setText(note.description)
+        if (intent?.hasExtra("note") == true){
+            note = intent?.extras?.get("note") as Note
+            binding.noteTitleTextview.setText(note.title)
+            binding.noteDescTextview.setText(note.description)
+        }
 
 
         binding.buttonAddNoteMain.setOnClickListener {

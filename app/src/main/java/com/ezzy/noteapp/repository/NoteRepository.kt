@@ -23,4 +23,8 @@ class NoteRepository @Inject constructor(
     suspend fun deleteNote(note: Note){
         noteDao.deleteNote(note)
     }
+
+    fun searchNotes(searchQuery : String) : LiveData<List<Note>>{
+        return noteDao.searchNote(searchQuery)
+    }
 }

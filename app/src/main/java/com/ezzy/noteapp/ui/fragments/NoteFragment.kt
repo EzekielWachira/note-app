@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -20,6 +21,10 @@ import com.ezzy.noteapp.util.RecyclerViewItemDecorator
 import com.ezzy.noteapp.viewmodel.NoteViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class NoteFragment : Fragment() {
@@ -82,6 +87,29 @@ class NoteFragment : Fragment() {
         }
 
         noteViewModel.getAllNotes().observe(viewLifecycleOwner, Observer {
+            noteAdapter.differ.submitList(it)
+        })
+
+        var job : Job? = null
+        binding.searchEditText.addTextChangedListener {
+            job?.cancel()
+            job = MainScope().launch {
+                delay(500L)
+                it?.let {
+                    if (it.toString().isNotEmpty()){
+                        searchNotes("%${it.toString()}%")
+                    } else {
+                        noteViewModel.getAllNotes().observe(viewLifecycleOwner, Observer { notes ->
+                            noteAdapter.differ.submitList(notes)
+                        })
+                    }
+                }
+            }
+        }
+    }
+
+    private fun searchNotes(searchQuery : String){
+        noteViewModel.searchNotes(searchQuery).observe(viewLifecycleOwner, Observer {
             noteAdapter.differ.submitList(it)
         })
     }

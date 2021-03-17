@@ -29,4 +29,7 @@ class NoteViewModel @Inject constructor(
         }
     }
 
+    fun searchNotes(searchQuery : String) = noteRepository.searchNotes(searchQuery)
+
+
 }

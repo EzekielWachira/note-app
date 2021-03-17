@@ -17,4 +17,9 @@ interface NoteDao {
 
     @Delete
     suspend fun deleteNote(note: Note)
+
+    @Query(
+            "SELECT * FROM notes WHERE title LIKE :searchQuery OR description LIKE :searchQuery ORDER BY created_at DESC"
+    )
+    fun searchNote(searchQuery: String) : LiveData<List<Note>>
 }

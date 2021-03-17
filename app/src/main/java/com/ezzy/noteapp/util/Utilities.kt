@@ -13,7 +13,7 @@ fun String.smartTruncate(length : Int) : String {
             break
         }
         builder.append(word)
-        builder.append(" ")
+        builder.append("")
         added += 1
     }
 
