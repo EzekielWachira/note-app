@@ -9,4 +9,9 @@
     <string name="me">Me</string>
     <string name="note_title">note title</string>
     <string name="type_your_note_here">type your note here</string>
+    <string name="draft">Draft</string>
+    <string name="image">Image</string>
+    <string name="note_color">Note color</string>
+    <string name="url">Url</string>
+    <string name="empty_string">Please fill out all fields</string>
 </resources>
