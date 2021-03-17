@@ -1,13 +1,10 @@
 package com.ezzy.noteapp.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
 import android.widget.Toast
-import androidx.core.view.get
+import androidx.appcompat.app.AppCompatActivity
 import com.ezzy.noteapp.R
 import com.ezzy.noteapp.databinding.ActivityNewNoteBinding
 import com.ezzy.noteapp.models.Note
