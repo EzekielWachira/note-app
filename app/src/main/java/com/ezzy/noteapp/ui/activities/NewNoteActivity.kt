@@ -69,21 +69,19 @@ class NewNoteActivity : AppCompatActivity() {
 
     private fun saveNote(){
 
-        if (isEmpty(binding.noteTitleTextview.text.toString()) &&
-                isEmpty(binding.noteDescTextview.toString())){
-            showToast(getString(R.string.empty_string))
-        }
+        if (!isEmpty(binding.noteTitleTextview.text.toString()) &&
+                !isEmpty(binding.noteDescTextview.toString())){
+            val note = Note(
+                    null,
+                    binding.noteTitleTextview.text.toString(),
+                    binding.noteDescTextview.text.toString(),
+                    "#ffffff",
+                    System.currentTimeMillis()
+            )
 
-        val note = Note(
-                null,
-                binding.noteTitleTextview.text.toString(),
-                binding.noteDescTextview.text.toString(),
-                "#ffffff",
-                System.currentTimeMillis()
-        )
-
-        notesViewModel.insertNote(note)
-        finish()
+            notesViewModel.insertNote(note)
+            finish()
+        } else showToast(getString(R.string.empty_string))
     }
 
     private fun isEmpty(string : String) : Boolean{
