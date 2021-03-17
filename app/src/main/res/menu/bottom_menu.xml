@@ -5,15 +5,15 @@
     xmlns:app2="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/actionImage"
         android:title="@string/image"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:icon="@drawable/ic_image"
         />
     <item android:id="@+id/actionUrl"
         android:title="@string/url"
-        app1:showAsAction="ifRoom"
+        app1:showAsAction="always"
         android:icon="@drawable/ic_language"/>
     <item android:id="@+id/actionColor"
         android:title="@string/note_color"
-        app2:showAsAction="ifRoom"
+        app2:showAsAction="always"
         android:icon="@drawable/ic_color_lens"/>
 </menu>
