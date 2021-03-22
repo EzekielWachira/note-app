@@ -13,4 +13,5 @@ object Versions {
     const val timberVersion = "4.7.1"
     const val circleImageViewVersion = "3.1.0"
     const val sdpAndroidVersion = "1.0.6"
+    const val legacySupportVersion = "1.0.0"
 }
