@@ -2,6 +2,7 @@ package com.ezzy.noteapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ezzy.noteapp.models.Note
 import com.ezzy.noteapp.repository.NoteRepository
@@ -14,6 +15,9 @@ class NoteViewModel @Inject constructor(
     app: Application,
     val noteRepository: NoteRepository
 ) : AndroidViewModel(app) {
+
+    private val _isEditMode = MutableLiveData<Boolean>()
+    val isEditMode get() = _isEditMode
 
     fun insertNote(note: Note) {
         viewModelScope.launch {

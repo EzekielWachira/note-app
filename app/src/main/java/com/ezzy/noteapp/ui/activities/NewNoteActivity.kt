@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.ezzy.noteapp.R
 import com.ezzy.noteapp.databinding.ActivityNewNoteBinding
 import com.ezzy.noteapp.models.Note
@@ -24,6 +25,9 @@ class NewNoteActivity : AppCompatActivity() {
     lateinit var noteRepository: NoteRepository
     private lateinit var note : Note
 
+//    private lateinit var isEditMode: Boolean
+    private var isEditMode: Boolean? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewNoteBinding.inflate(layoutInflater)
@@ -36,13 +40,23 @@ class NewNoteActivity : AppCompatActivity() {
             note = intent?.extras?.get("note") as Note
             binding.noteTitleTextview.setText(note.title)
             binding.noteDescTextview.setText(note.description)
+            notesViewModel.isEditMode.value = true
         }
 
         binding.newNoteFab.setOnClickListener {
-            saveNote()
+            if (isEditMode == true){
+                updateNote()
+            } else {
+                saveNote()
+            }
         }
 
-
+        notesViewModel.isEditMode.observe(this, Observer<Boolean> {
+            if (it){
+                binding.newNoteFab.setImageResource(R.drawable.ic_update)
+                isEditMode = it
+            }
+        })
 
     }
 
@@ -81,6 +95,20 @@ class NewNoteActivity : AppCompatActivity() {
             notesViewModel.insertNote(note)
             finish()
         } else showToast(getString(R.string.empty_string))
+    }
+
+    private fun updateNote(){
+        val newNote = Note(
+            null,
+            binding.noteTitleTextview.text.toString(),
+            binding.noteDescTextview.text.toString(),
+            "#ffffff",
+            System.currentTimeMillis()
+        )
+        notesViewModel.deleteNote(note)
+        notesViewModel.insertNote(newNote)
+        showToast("Note updated")
+        finish()
     }
 
     private fun isEmpty(string : String) : Boolean{
