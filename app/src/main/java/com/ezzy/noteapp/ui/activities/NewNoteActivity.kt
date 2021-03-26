@@ -105,9 +105,9 @@ class NewNoteActivity : AppCompatActivity() {
             "#ffffff",
             System.currentTimeMillis()
         )
-        notesViewModel.updateNote(newNote)
-//        notesViewModel.deleteNote(note)
-//        notesViewModel.insertNote(newNote)
+//        notesViewModel.updateNote(newNote)
+        notesViewModel.deleteNote(note)
+        notesViewModel.insertNote(newNote)
         showToast("Note updated")
         finish()
     }
