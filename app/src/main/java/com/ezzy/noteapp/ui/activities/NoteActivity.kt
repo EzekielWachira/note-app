@@ -16,6 +16,8 @@ class NoteActivity : AppCompatActivity() {
         binding = ActivityNotesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         binding.bottomNavView.background = null
         binding.bottomNavView.menu.getItem(2).apply {
             isEnabled = false

@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteApp">
-        <activity android:name=".ui.activities.NewNoteActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activities.NewNoteActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ui.activities.NoteActivity"
+            />
         <activity android:name=".ui.activities.NoteActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

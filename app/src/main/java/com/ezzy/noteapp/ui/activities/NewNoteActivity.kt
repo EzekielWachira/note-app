@@ -28,6 +28,7 @@ class NewNoteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         notesViewModel = NoteViewModel(application, noteRepository)
 
@@ -50,6 +51,7 @@ class NewNoteActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.new_note_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
