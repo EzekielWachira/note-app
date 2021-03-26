@@ -23,6 +23,8 @@
             android:inputType="textPersonName"
             android:padding="13dp"
             android:hint="@string/type_to_search"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             />
 
         <androidx.recyclerview.widget.RecyclerView
