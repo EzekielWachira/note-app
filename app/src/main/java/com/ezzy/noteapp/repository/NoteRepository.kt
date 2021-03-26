@@ -16,6 +16,19 @@ class NoteRepository @Inject constructor(
         noteDao.insert(note)
     }
 
+    suspend fun updateNote(
+        note: Note
+    ) = note.noteColor?.let {noteColor ->
+        note.creationTime?.let { creationTime ->
+            noteDao.updateNote(
+                note.title,
+                note.description,
+                noteColor,
+                    creationTime
+        )
+        }
+    }
+
     suspend fun deleteNote(note: Note){
         noteDao.deleteNote(note)
     }

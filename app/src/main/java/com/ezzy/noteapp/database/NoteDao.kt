@@ -1,11 +1,9 @@
 package com.ezzy.noteapp.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.ezzy.noteapp.models.Note
+import java.util.concurrent.CompletableFuture
 
 @Dao
 interface NoteDao {
@@ -14,6 +12,16 @@ interface NoteDao {
 
     @Insert
     suspend fun insert(note: Note) : Long
+
+    @Query(
+            "UPDATE notes SET title = :title, description = :description, note_color = :noteColor WHERE created_at = :createdAt"
+    )
+    suspend fun updateNote(
+            title: String,
+            description: String,
+            noteColor: String,
+            createdAt: Long
+    )
 
     @Delete
     suspend fun deleteNote(note: Note)

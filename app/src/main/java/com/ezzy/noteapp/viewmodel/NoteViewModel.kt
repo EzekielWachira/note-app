@@ -25,6 +25,10 @@ class NoteViewModel @Inject constructor(
         }
     }
 
+    fun updateNote(note: Note) = viewModelScope.launch {
+        noteRepository.updateNote(note)
+    }
+
     fun getAllNotes() = noteRepository.getAllNotes()
 
     fun deleteNote(note: Note) {
