@@ -36,7 +36,7 @@
         android:id="@+id/mainFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/green"
         android:src="@drawable/ic_add"
         app:layout_anchor="@id/bottomAppBar"/>
 
